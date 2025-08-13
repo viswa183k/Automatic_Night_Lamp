@@ -1,0 +1,22 @@
+// Automatic Night Lamp using LDR
+const int ldrPin = A0;
+const int lampPin = 7;
+
+void setup() {
+  pinMode(lampPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrPin);
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue);
+
+  if (ldrValue < 500) {
+    digitalWrite(lampPin, HIGH); // Turn ON lamp
+  } else {
+    digitalWrite(lampPin, LOW); // Turn OFF lamp
+  }
+
+  delay(500);
+}
